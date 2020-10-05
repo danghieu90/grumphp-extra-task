@@ -5,7 +5,7 @@ namespace HD\GrumPhpExtraTask;
 use GrumPHP\Extension\ExtensionInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
-use HD\GrumPhpExtraTask\Task\PhpCs
+use HD\GrumPhpExtraTask\Task\PhpCs;
 
 class ExtensionLoader implements ExtensionInterface
 {
