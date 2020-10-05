@@ -11,6 +11,7 @@ use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use GrumPHP\Collection\ProcessArgumentsCollection;
 
 /**
  * PhpMd task.
