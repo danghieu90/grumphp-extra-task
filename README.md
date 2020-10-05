@@ -20,13 +20,17 @@ parameters:
             sniffs: []
             triggered_by: [php]
             exclude: []
-        php_md:
-            bin: /usr/local/bin/phpmd
-            whitelist_patterns: []
-            exclude: []
-            report_format: text
-            ruleset: ['cleancode', 'codesize', 'naming']
-            triggered_by: ['php']
+        es_lint:
+            bin: node_modules/.bin/eslint
+            triggered_by: [js, jsx, ts, tsx, vue]
+            whitelist_patterns:
+                - /^resources\/js\/(.*)/
+            config: .eslintrc.json
+            debug: false
+            format: ~
+            max_warnings: ~
+            no_eslintrc: false
+            quiet: false
     extensions:
         - HD\GrumPhpExtraTask\ExtensionLoader
 ````
