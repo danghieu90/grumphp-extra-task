@@ -20,6 +20,13 @@ parameters:
             sniffs: []
             triggered_by: [php]
             exclude: []
+        php_md:
+            bin: /usr/local/bin/phpmd
+            whitelist_patterns: []
+            exclude: []
+            report_format: text
+            ruleset: ['cleancode', 'codesize', 'naming']
+            triggered_by: ['php']
     extensions:
         - HD\GrumPhpExtraTask\ExtensionLoader
 ````
