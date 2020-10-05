@@ -85,9 +85,7 @@ class EsLint extends AbstractExternalTask
         $process->run();
 
         if (!$process->isSuccessful()) {
-            return FixableProcessResultProvider::provide(
-                TaskResult::createFailed($this, $context, $this->formatter->format($process));
-            );
+            return TaskResult::createFailed($this, $context, $this->formatter->format($process));
         }
 
         return TaskResult::createPassed($this, $context);
