@@ -33,6 +33,7 @@ class EsLint extends AbstractExternalTask
             'max_warnings' => null,
             'no_eslintrc' => false,
             'quiet' => false,
+            'ignore_path' => null
         ]);
 
         // Task config options
@@ -47,6 +48,7 @@ class EsLint extends AbstractExternalTask
         $resolver->addAllowedTypes('max_warnings', ['null', 'integer']);
         $resolver->addAllowedTypes('no_eslintrc', ['bool']);
         $resolver->addAllowedTypes('quiet', ['bool']);
+        $resolver->addAllowedTypes('ignore_path', ['null', 'string']);
 
         return $resolver;
     }
@@ -79,6 +81,7 @@ class EsLint extends AbstractExternalTask
         $arguments->addOptionalArgument('--no-eslintrc', $config['no_eslintrc']);
         $arguments->addOptionalArgument('--quiet', $config['quiet']);
         $arguments->addOptionalIntegerArgument('--max-warnings=%d', $config['max_warnings']);
+        $arguments->addOptionalArgument('--ignore-path=%s', $config['ignore_path']);
         $arguments->addFiles($files);
 
         $process = $this->processBuilder->buildProcess($arguments);
