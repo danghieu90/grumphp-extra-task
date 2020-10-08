@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\Reference;
 use HD\GrumPhpExtraTask\Task\PhpCs;
 use HD\GrumPhpExtraTask\Task\EsLint;
 use HD\GrumPhpExtraTask\Task\Jscs;
+use HD\GrumPhpExtraTask\Task\Composer;
 
 class ExtensionLoader implements ExtensionInterface
 {
@@ -27,5 +28,11 @@ class ExtensionLoader implements ExtensionInterface
             ->addArgument(new Reference('process_builder'))
             ->addArgument(new Reference('formatter.raw_process'))
             ->addTag('grumphp.task', ['task' => 'jscs']);
+
+        $container->register('task.composer_validate', Composer::class)
+            ->addArgument(new Reference('process_builder'))
+            ->addArgument(new Reference('formatter.raw_process'))
+            ->addArgument(new Reference('grumphp.util.filesystem'))
+            ->addTag('grumphp.task', ['task' => 'composer_validate']);
     }
 }
