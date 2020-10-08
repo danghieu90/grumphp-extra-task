@@ -15,7 +15,7 @@ use GrumPHP\Task\Context\RunContext;
 use GrumPHP\Util\Filesystem;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use GrumPHP\Collection\ProcessArgumentsCollection;
-use SplFileInfo;
+use Symfony\Component\Finder\SplFileInfo;
 
 class Composer extends AbstractExternalTask
 {
