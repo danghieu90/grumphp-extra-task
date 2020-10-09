@@ -9,6 +9,7 @@ use HD\GrumPhpExtraTask\Task\PhpCs;
 use HD\GrumPhpExtraTask\Task\EsLint;
 use HD\GrumPhpExtraTask\Task\Jscs;
 use HD\GrumPhpExtraTask\Task\Composer;
+use HD\GrumPhpExtraTask\Task\PhpCompatibility;
 
 class ExtensionLoader implements ExtensionInterface
 {
@@ -34,5 +35,10 @@ class ExtensionLoader implements ExtensionInterface
             ->addArgument(new Reference('formatter.raw_process'))
             ->addArgument(new Reference('grumphp.util.filesystem'))
             ->addTag('grumphp.task', ['task' => 'composer_validate']);
+
+        $container->register('task.php_compatibility', PhpCompatibility::class)
+            ->addArgument(new Reference('process_builder'))
+            ->addArgument(new Reference('formatter.phpcs'))
+            ->addTag('grumphp.task', ['task' => 'php_compatibility']);
     }
 }
