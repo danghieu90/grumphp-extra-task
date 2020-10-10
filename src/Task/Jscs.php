@@ -66,7 +66,7 @@ class Jscs extends AbstractExternalTask
             : $this->processBuilder->createArgumentsForCommand('jscs');
 
         $arguments->addOptionalArgument('--config=%s', $config['config']);
-        $arguments->addOptionalArgument('--reporter=%s', $config['format']);
+        $arguments->addOptionalArgument('--reporter=%s', $config['reporter']);
         $arguments->addFiles($files);
 
         $process = $this->processBuilder->buildProcess($arguments);
