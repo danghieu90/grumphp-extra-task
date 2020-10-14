@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HD\GrumPhpExtraTask\Task;
 
+use GrumPHP\Task\AbstractExternalTask;
 use GrumPHP\Runner\TaskResult;
 use GrumPHP\Collection\ProcessArgumentsCollection;
 use GrumPHP\Runner\TaskResultInterface;
