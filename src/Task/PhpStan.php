@@ -31,12 +31,14 @@ class PhpStan extends AbstractExternalTask
             'triggered_by' => ['php'],
             'memory_limit' => null,
             'use_grumphp_paths' => true,
+            'error_format' => null,
         ]);
 
         $resolver->addAllowedTypes('bin', ['null', 'string']);
         $resolver->addAllowedTypes('autoload_file', ['null', 'string']);
         $resolver->addAllowedTypes('configuration', ['null', 'string']);
         $resolver->addAllowedTypes('memory_limit', ['null', 'string']);
+        $resolver->addAllowedTypes('error_format', ['null', 'string']);
         $resolver->setAllowedValues(
             'level',
             /**
@@ -92,6 +94,7 @@ class PhpStan extends AbstractExternalTask
         $arguments->addOptionalArgument('--autoload-file=%s', $config['autoload_file']);
         $arguments->addOptionalArgument('--configuration=%s', $config['configuration']);
         $arguments->addOptionalArgument('--memory-limit=%s', $config['memory_limit']);
+        $arguments->addOptionalArgument('--error-format=%s', $config['error_format']);
         $arguments->addOptionalMixedArgument('--level=%s', $config['level']);
         $arguments->add('--no-ansi');
         $arguments->add('--no-interaction');
